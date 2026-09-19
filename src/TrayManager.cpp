@@ -1,6 +1,7 @@
 #include "TrayManager.h"
 #include <shellapi.h>
 #include <map>
+#include "../resources/resource.h"
 
 static std::map<HWND, TrayManager*> g_trayInstances;
 
@@ -45,7 +46,10 @@ bool TrayManager::initialize(const std::wstring& tooltip) {
     m_nid.uID = TRAY_ICON_ID;
     m_nid.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
     m_nid.uCallbackMessage = WM_TRAYICON;
-    m_nid.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
+    m_nid.hIcon = LoadIcon(m_hInstance, MAKEINTRESOURCE(IDI_ICON1));
+    if (!m_nid.hIcon) {
+        m_nid.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
+    }
     wcsncpy_s(m_nid.szTip, tooltip.c_str(), _TRUNCATE);
 
     return Shell_NotifyIconW(NIM_ADD, &m_nid) == TRUE;

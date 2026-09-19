@@ -52,11 +52,17 @@ set(HEADERS
     include/Config.h
 )
 
+set(RESOURCES
+    resources/app.rc
+    resources/resource.h
+)
+
 # Executable
-add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} WIN32 ${SOURCES} ${HEADERS} ${RESOURCES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/resources
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
