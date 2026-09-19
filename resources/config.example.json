@@ -1,0 +1,29 @@
+{
+  "processVolumes": [
+    {
+      "processName": "Discord.exe",
+      "volume": 0.8
+    },
+    {
+      "processName": "chrome.exe",
+      "volume": 0.5
+    }
+  ],
+  "hotkeys": [
+    {
+      "id": 1,
+      "modifiers": 6,
+      "vk": 34,
+      "action": "next_playback",
+      "description": "Наступний пристрій відтворення"
+    },
+    {
+      "id": 2,
+      "modifiers": 6,
+      "vk": 33,
+      "action": "prev_playback",
+      "description": "Попередній пристрій відтворення"
+    }
+  ],
+  "deviceProfiles": []
+}
